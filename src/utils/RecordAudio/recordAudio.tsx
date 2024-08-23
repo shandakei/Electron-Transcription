@@ -9,7 +9,7 @@ const RecordAudio = () => {
   const [recording, setRecording] = useState(false)
 
   if (recording) {
-    StartRecording()
+    StartRecording(transcript, setTranscript)
   }
 
   return (
