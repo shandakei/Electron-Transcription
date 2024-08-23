@@ -44,5 +44,5 @@ export default async function startRecording(transcript, setTranscript) {
       console.error('Error accessing media devices.', error);
     }
 
-    return socket
+    return
   };
