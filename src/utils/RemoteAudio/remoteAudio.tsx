@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { createClient, LiveTranscriptionEvents } from '@deepgram/sdk';
 import fetch from 'cross-fetch';
 

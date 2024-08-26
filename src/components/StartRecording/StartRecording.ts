@@ -15,15 +15,17 @@ export default async function startRecording(transcript: string, setTranscript: 
       ]);
 
       socket.onopen = () => {
-        console.log({ event: 'onopen' });
+        // console.log({ event: 'onopen' });
 
         mediaRecorder.addEventListener('dataavailable', event => {
           if (event.data.size > 0 && socket.readyState === 1) {
             socket.send(event.data);
+            // setInterval(() => socket.send(event.data), 3000);
+
           }
         });
 
-        mediaRecorder.start(1);
+        mediaRecorder.start(2000);
       };
 
       socket.onmessage = (message) => {
@@ -33,7 +35,7 @@ export default async function startRecording(transcript: string, setTranscript: 
           setTranscript((prev: string) => `${prev} ${incoming}`.trim());
         }
         // console.log(received);
-        console.log(transcript);
+        console.log(incoming);
       };
 
       socket.onclose = () => {
