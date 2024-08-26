@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './recordAudio.module.css'
 import StopBtn from '../../components/StopBtn/StopBtn.tsx'
 import TranscribeBtn from '../../components/TranscribeBtn/TranscribeBtn.tsx'
@@ -8,9 +8,11 @@ const RecordAudio = () => {
   const [transcript, setTranscript] = useState('');
   const [recording, setRecording] = useState(false)
 
-  if (recording) {
-    StartRecording(transcript, setTranscript)
-  }
+  useEffect(() => {
+    if (recording && transcript === '') {
+      StartRecording(transcript, setTranscript)
+    }
+  }, [recording, transcript]);
 
   return (
     <div className={styles.container}>
