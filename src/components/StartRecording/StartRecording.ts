@@ -1,4 +1,8 @@
-export default async function startRecording(transcript, setTranscript) {
+let mediaRecorder: MediaRecorder | null = null;
+let socket: WebSocket | null = null;
+
+export default async function startRecording(transcript: string, setTranscript: React.Dispatch<React.SetStateAction<string>>) {
+  
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -19,14 +23,14 @@ export default async function startRecording(transcript, setTranscript) {
           }
         });
 
-        mediaRecorder.start(2000);
+        mediaRecorder.start(1);
       };
 
       socket.onmessage = (message) => {
         const received = JSON.parse(message.data);
         const incoming = received.channel.alternatives[0].transcript;
         if (incoming && incoming.trim() && received.is_final) {
-          setTranscript((prev) => `${prev} ${incoming}`.trim());
+          setTranscript((prev: string) => `${prev} ${incoming}`.trim());
         }
         // console.log(received);
         console.log(transcript);
@@ -46,3 +50,15 @@ export default async function startRecording(transcript, setTranscript) {
 
     return
   };
+
+  
+  export function stopRecording() {
+    if (mediaRecorder) {
+      mediaRecorder.stop();
+      console.log('Recording stopped.');
+    }
+    if (socket) {
+      socket.close();
+      console.log('WebSocket closed.');
+    }
+  }
