@@ -1,24 +1,25 @@
 import { useState, useEffect } from 'react';
 import styles from './recordAudio.module.css'
-import StopBtn from '../../components/StopBtn/StopBtn.tsx'
-import TranscribeBtn from '../../components/TranscribeBtn/TranscribeBtn.tsx'
-import StartRecording from '../../components/StartRecording/StartRecording.ts'
+import StopBtn from '../StopBtn/StopBtn.tsx'
+import TranscribeBtn from '../TranscribeBtn/TranscribeBtn.tsx'
+import StartRecording from '../../utils/StartRecording/StartRecording.ts'
 
 const RecordAudio = () => {
   const [transcript, setTranscript] = useState('');
   const [recording, setRecording] = useState(false)
 
   useEffect(() => {
-    if (recording && transcript === '') {
-      StartRecording(transcript, setTranscript)
+    console.log('start recording useEffect')
+    if (recording) {
+      StartRecording(setTranscript)
     }
-  }, [recording, transcript]);
+  }, [recording]);
 
   return (
     <div className={styles.container}>
       <h2>Live 'Record Audio' Transcript</h2>
       <p className={styles.transcription}>{transcript}</p>
-      <StopBtn setRecording={setRecording} />
+      <StopBtn setRecording={setRecording} mediaRecorder={null} />
       <TranscribeBtn setRecording={setRecording}/>
     </div>
   );

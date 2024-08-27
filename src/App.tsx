@@ -1,5 +1,5 @@
 import './App.css'
-import RecAudio from './utils/RecordAudio/recordAudio'; 
+import RecAudio from './components/RecordAudio/recordAudio'; 
 // import RemoteAudio from './utils/RemoteAudio/remoteAudio';
 
 function App() {
