@@ -1,18 +1,22 @@
 import styles from './StopBtn.module.css';
 
-interface TranscribeBtnProps {
+interface StopBtnProps {
   setRecording: React.Dispatch<React.SetStateAction<boolean>>;
+  mediaRecorder: MediaRecorder | null;
 }
 
-export default function TranscribeBtn({ setRecording }: TranscribeBtnProps) {
-    
-  function handleTranscription() {
+export default function StopBtn({ setRecording, mediaRecorder }: StopBtnProps) {
+
+  function handleStop() {
     console.log('... stopping transcription');
     setRecording(false);
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+      mediaRecorder.stop();
+    }
   }
 
   return (
-    <button className={styles.transcriptionBtn} onClick={handleTranscription}>
+    <button className="stopBtn" onClick={handleStop}>
       STOP
     </button>
   );
