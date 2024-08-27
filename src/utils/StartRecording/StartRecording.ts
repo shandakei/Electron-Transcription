@@ -1,31 +1,21 @@
-export default async function startRecording(transcript: string, setTranscript: React.Dispatch<React.SetStateAction<string>>) {
-  
-  let mediaRecorder: MediaRecorder | null = null;
-  let socket: WebSocket | null = null;
+import stopRecording from "../StopRecording/StopRecording";
+
+export default async function startRecording(setTranscript: React.Dispatch<React.SetStateAction<string>>) {
+
 
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
-    mediaRecorder = new MediaRecorder(stream);
+    let mediaRecorder = new MediaRecorder(stream);
 
-    socket = new WebSocket('wss://api.deepgram.com/v1/listen', [
+    let socket = new WebSocket('wss://api.deepgram.com/v1/listen', [
       'token', '7a022fdecfba5b581d63987b434ba69318699182'
     ]);
 
     // Set up the stop button listener as soon as the function runs
     const stopBtn = document.querySelector('.stopBtn');
     if (stopBtn) {
-      stopBtn.addEventListener('click', () => {
-        console.log('Stop button clicked.');
-        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-          mediaRecorder.stop();
-          console.log('Recording stopped.');
-        }
-        // if (socket && socket.readyState === WebSocket.OPEN) {
-        //   socket.close();
-        //   console.log('WebSocket closed.');
-        // }
-      });
+      stopRecording(stopBtn, mediaRecorder)
     }
 
     socket.onopen = () => {

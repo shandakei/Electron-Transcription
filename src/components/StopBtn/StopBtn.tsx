@@ -1,5 +1,3 @@
-import styles from './StopBtn.module.css';
-
 interface StopBtnProps {
   setRecording: React.Dispatch<React.SetStateAction<boolean>>;
   mediaRecorder: MediaRecorder | null;
@@ -8,7 +6,7 @@ interface StopBtnProps {
 export default function StopBtn({ setRecording, mediaRecorder }: StopBtnProps) {
 
   function handleStop() {
-    console.log('... stopping transcription');
+    console.log('StopBtn Click');
     setRecording(false);
     if (mediaRecorder && mediaRecorder.state === 'recording') {
       mediaRecorder.stop();
