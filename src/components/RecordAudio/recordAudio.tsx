@@ -4,12 +4,13 @@ import StopBtn from '../StopBtn/StopBtn.tsx'
 import TranscribeBtn from '../TranscribeBtn/TranscribeBtn.tsx'
 import StartRecording from '../../utils/StartRecording/StartRecording.ts'
 import SummarizedText from '../summarizedText/summarizedText.tsx';
-import SummarizeBtn from '../summarizeBtn/summarizeBtn.tsx';
+import OpenAIComponent from '../../utils/summerizer/playground.tsx'
 
 const RecordAudio = () => {
   const [transcript, setTranscript] = useState('');
   const [recording, setRecording] = useState(false)
   const [summarized, setSummarized] = useState(false)
+  const [response, setResponse] = useState<string | null>(null);
 
   useEffect(() => {
     console.log('start recording useEffect')
@@ -23,12 +24,12 @@ const RecordAudio = () => {
     <h2>Live 'Record Audio' Transcript</h2>
     <div className={styles.container}>
       <p className={styles.transcription}>{transcript}</p>
-      {summarized ? <SummarizedText /> : <></>}
+      {summarized ? <SummarizedText response={response} /> : <></>}
     </div>
     <div className={styles.btns}>
       <StopBtn setRecording={setRecording} mediaRecorder={null} />
       <TranscribeBtn setRecording={setRecording}/>
-      <SummarizeBtn setSummarized={setSummarized} summarized={summarized} />
+      <OpenAIComponent setSummarized={setSummarized} summarized={summarized} response={response} setResponse={setResponse}/>
     </div>
     </div>
   );

@@ -1,21 +1,8 @@
 import styles from './summarizedText.module.css'
-export default function SummarizedText() {
+export default function SummarizedText({response}) {
 
     return (
     <p className={styles.summarizedText}>
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
-    THIS IS THE TEXT THAT HAS BEEN SUMMARIZED <br />
+    {response}
     </p>)
 }

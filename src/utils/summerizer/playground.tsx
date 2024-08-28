@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const OpenAIComponent: React.FC = () => {
-  const [response, setResponse] = useState<string | null>(null);
+const OpenAIComponent: React.FC = ({setSummarized, summarized, response, setResponse}) => {
 
   const fetchOpenAIResponse = async () => {
+    setSummarized(!summarized)
     try {
-      const apiKey = process.env.VITE_OPENAI_API_KEY; // Ensure your API key is stored in a .env file
+      const apiKey = import.meta.env.VITE_OPENAI_API_KEY; // Ensure your API key is stored in a .env file
 
       const result = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
@@ -30,8 +30,12 @@ const OpenAIComponent: React.FC = () => {
 
   return (
     <div>
+      {summarized ? <button onClick={()=>setSummarized(!summarized)}>Close Summary</button>
+      : 
+      <>
       <button onClick={fetchOpenAIResponse}>Fetch OpenAI Response</button>
-      {response && <p>Response: {response}</p>}
+      </>
+      }
     </div>
   );
 };
