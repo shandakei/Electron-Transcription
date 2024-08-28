@@ -1,5 +1,6 @@
 import './App.css'
 import RecAudio from './components/RecordAudio/recordAudio'; 
+import SummarizeBtn from './components/summarizeBtn/summarizeBtn';
 // import RemoteAudio from './utils/RemoteAudio/remoteAudio';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     
     <div className="container">
       <RecAudio />
+      <SummarizeBtn />
     </div>
 
     </>
