@@ -25,26 +25,6 @@ main();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // export default function Summarizer({transcript}) {
     //     return (
         //         <>
