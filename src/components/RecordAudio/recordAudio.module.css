@@ -2,8 +2,19 @@
     background-color: beige;
     width: 90%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10%;
+    padding: 5px 8px;
+    border-bottom: 10px solid rgb(65, 65, 46);
 }
-.transcription {
-    margin: 0 auto;
-    max-width: 80%;
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btns {
+    margin-left: 5%;
 }
