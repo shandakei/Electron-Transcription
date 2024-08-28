@@ -3,12 +3,14 @@ require('dotenv').config();
 
 // const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
-
 const openai = new OpenAI({
-    organization: "org-PqmBk3NSxA2oruuligJ5z05Y",
-    project: "proj_aVnRR4IE5UzEBsakZNu1Xkfa",
-    apiKey: process.env.VITE_OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY || import.meta.env.VITE_OPENAI_API_KEY,
 });
+// const openai = new OpenAI({
+//     organization: "org-PqmBk3NSxA2oruuligJ5z05Y",
+//     project: "proj_aVnRR4IE5UzEBsakZNu1Xkfa",
+//     apiKey: process.env.VITE_OPENAI_API_KEY
+// });
 
 async function main() {
   const messages: { role: string; content: string }[] = [
@@ -43,11 +45,15 @@ async function main() {
   
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4o",
+    model: "gpt-4o-mini",
     messages: messages ,
     tools: tools,
     function_call: "auto",
+    stream: true,
   });
+  for await (const chunk of stream) {
+    process.stdout.write(chunk.choices[0]?.delta?.content || "");
+}
 
   console.log(response);
 }
