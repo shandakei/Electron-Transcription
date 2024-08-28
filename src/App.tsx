@@ -1,7 +1,6 @@
 import './App.css'
 import RecAudio from './components/RecordAudio/recordAudio'; 
 // import RemoteAudio from './utils/RemoteAudio/remoteAudio';
-import OpenAIComponent from './utils/summerizer/playground.tsx'
 
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
       <RecAudio />
     </div>
     <div>
-    <OpenAIComponent />
     </div>
 
     </>
