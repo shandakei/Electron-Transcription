@@ -1,9 +1,11 @@
 
-export default function SummarizeBtn() {
-    function handleSummarize() {
-        console.log('summarizeBtn')
-    }
+export default function SummarizeBtn({setSummarized, summarized}) {
     return (
-        <button onClick={handleSummarize}>Summarize!</button>
+        <>
+        {summarized 
+        ? <button onClick={() => {setSummarized(false)}}>Go Back!</button>
+        : <button onClick={() => {setSummarized(true)}}>Summarize!</button>
+        }
+        </>
     )
 }
