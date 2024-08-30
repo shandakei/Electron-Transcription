@@ -22,6 +22,7 @@ const OpenAIComponent: React.FC = ({setSummarized, summarized, response, setResp
 
       const data = await result.json();
       setResponse(data.choices[0].message.content); // Assuming the response is in this structure
+      console.log("data received-------")
     } catch (error) {
       console.error('Error fetching data from OpenAI:', error);
       setResponse("An error occurred while fetching data.");
@@ -33,7 +34,7 @@ const OpenAIComponent: React.FC = ({setSummarized, summarized, response, setResp
       {summarized ? <button onClick={()=>setSummarized(!summarized)}>Close Summary</button>
       : 
       <>
-      <button onClick={fetchOpenAIResponse}>Fetch OpenAI Response</button>
+      <button onClick={fetchOpenAIResponse}>Fetch Summary</button>
       </>
       }
     </div>
