@@ -9,7 +9,7 @@ export default async function startRecording(setTranscript: React.Dispatch<React
     let mediaRecorder = new MediaRecorder(stream);
 
     let socket = new WebSocket('wss://api.deepgram.com/v1/listen', [
-      'token', import.meta.env.VITE_OPENAI_API_KEY
+      'token', import.meta.env.VITE_DG_API_KEY
     ]);
 
     // Set up the stop button listener as soon as the function runs
