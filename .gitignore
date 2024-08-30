@@ -26,3 +26,5 @@ release
 *.sw?
 .playground.ts
 .env
+playground.tsx
+playground.js
