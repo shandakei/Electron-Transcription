@@ -1,3 +1,5 @@
+.env
+
 # Logs
 logs
 *.log
@@ -26,4 +28,3 @@ release
 *.sw?
 playground.tsx
 playground.js
-.env
