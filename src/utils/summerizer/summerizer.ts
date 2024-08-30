@@ -1,62 +1,33 @@
 import OpenAI from "openai";
-require('dotenv').config();
+import dotenv from 'dotenv';
+const fs = require('fs'); ///what the heck is this error
 
-// const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+
+dotenv.config();
+
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || import.meta.env.VITE_OPENAI_API_KEY,
+    organization: "org-PqmBk3NSxA2oruuligJ5z05Y",
+    project: "proj_aVnRR4IE5UzEBsakZNu1Xkfa",
+    apiKey: import.meta.env.OPENAI_API_KEY
 });
-// const openai = new OpenAI({
-//     organization: "org-PqmBk3NSxA2oruuligJ5z05Y",
-//     project: "proj_aVnRR4IE5UzEBsakZNu1Xkfa",
-//     apiKey: process.env.VITE_OPENAI_API_KEY
-// });
 
-async function main() {
-  const messages: { role: string; content: string }[] = [
-    { role: "user", content: "What's the weather like in Boston today?" }
-  ];
-  const tools: {
-    name: string;
-    description: string;
-    parameters: {
-      type: string;
-      properties: {
-        location: { type: string; description: string };
-        unit: { type: string; enum: string[] };
-      };
-      required: string[];
-    };
-  }[] = [
-    {
-      name: "get_current_weather",
-      description: "Get the current weather in a given location",
-      parameters: {
-        type: "object",
-        properties: {
-          location: { type: "string", description: "The city and state, e.g., San Francisco, CA" },
-          unit: { type: "string", enum: ["celsius", "fahrenheit"] },
-        },
-        required: ["location"],
-      },
-    },
-  ];
-      
-  
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: messages ,
-    tools: tools,
-    function_call: "auto",
-    stream: true,
-  });
-  for await (const chunk of stream) {
-    process.stdout.write(chunk.choices[0]?.delta?.content || "");
+
+export default async function SendMessage() {
+  try {
+      const response = await openai.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [{ role: "user", content: "Say this is a test!" }],
+          temperature: 0.7
+      });
+
+      console.log(response);
+      console.log("not an error log, response error")
+  } catch (error) {
+      console.error("your shit didnt work again dude");
+  }
 }
 
-  console.log(response);
-}
-
-main();
+// sendMessage();
 

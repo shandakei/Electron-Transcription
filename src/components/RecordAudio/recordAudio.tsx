@@ -4,7 +4,8 @@ import StopBtn from '../StopBtn/StopBtn.tsx'
 import TranscribeBtn from '../TranscribeBtn/TranscribeBtn.tsx'
 import StartRecording from '../../utils/StartRecording/StartRecording.ts'
 import SummarizedText from '../summarizedText/summarizedText.tsx';
-import OpenAIComponent from '../../utils/summerizer/playground.tsx'
+// import OpenAIComponent from '../../utils/summerizer/summerizer.ts'
+import SendMessage from '../../utils/summerizer/summerizer.ts';
 
 const RecordAudio = () => {
   const [transcript, setTranscript] = useState('');
@@ -29,7 +30,8 @@ const RecordAudio = () => {
     <div className={styles.btns}>
       <StopBtn setRecording={setRecording} mediaRecorder={null} />
       <TranscribeBtn setRecording={setRecording}/>
-      <OpenAIComponent setSummarized={setSummarized} summarized={summarized} response={response} setResponse={setResponse}/>
+      {/* <OpenAIComponent setSummarized={setSummarized} summarized={summarized} response={response} setResponse={setResponse}/> */}
+      <button onClick={SendMessage}>send message test</button>
     </div>
     </div>
   );
