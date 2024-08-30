@@ -13,7 +13,10 @@
     "@deepgram/sdk": "^3.5.1",
     "cross-fetch": "^4.0.0",
     "dotenv": "^16.4.5",
+<<<<<<< HEAD
     "git-filter-repo": "^0.0.30",
+=======
+>>>>>>> 7dcba73f057edc10b09b5ef4a91e27beea46dfbb
     "openai": "^4.56.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

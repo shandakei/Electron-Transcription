@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 .env
 
+=======
+>>>>>>> 7dcba73f057edc10b09b5ef4a91e27beea46dfbb
 # Logs
 logs
 *.log
@@ -26,5 +29,10 @@ release
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
+=======
+.playground.ts
+.env
+>>>>>>> 7dcba73f057edc10b09b5ef4a91e27beea46dfbb
 playground.tsx
 playground.js
