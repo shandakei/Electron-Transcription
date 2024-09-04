@@ -1,6 +1,5 @@
 import OpenAI from "openai";
 import dotenv from 'dotenv';
-const fs = require('fs'); ///what the heck is this error
 
 
 dotenv.config();
