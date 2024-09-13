@@ -11,7 +11,7 @@ const openai = new OpenAI({
 });
 
 
-export default async function SendMessage() {
+export default async function SendMessage(transcript: String) {
   try {
          const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -21,13 +21,13 @@ export default async function SendMessage() {
     },
     body: JSON.stringify({
         model: "gpt-4o-mini",
-        messages: [{ role: "user", content: "Correct and summarize the following transcription, otherwise respond with 'No transcription found': `${transcript}` }],
+        messages: [{ role: "user", content: `summarize this message: ${transcript}` }],
         temperature: 0.7
     })
 });
 
       const data = await response.json();
-      console.log(data);
+      console.log(data.choices[0].message.content);
     //   console.log(response.headers.get('x-request-id'))
     //   console.log(response.headers.get('x-ratelimit-remaining-requests'))
       console.log("not an error log, response error")
@@ -37,5 +37,5 @@ export default async function SendMessage() {
   }
 }
 
-SendMessage();
+// SendMessage();
 

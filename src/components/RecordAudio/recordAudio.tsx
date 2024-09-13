@@ -31,7 +31,7 @@ const RecordAudio = () => {
       <StopBtn setRecording={setRecording} mediaRecorder={null} />
       <TranscribeBtn setRecording={setRecording}/>
       {/* <OpenAIComponent setSummarized={setSummarized} summarized={summarized} response={response} setResponse={setResponse}/> */}
-      <button onClick={SendMessage}>send message test</button>
+      <button onClick={() => SendMessage(transcript)}>send message test</button>
     </div>
     </div>
   );
