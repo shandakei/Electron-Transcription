@@ -11,7 +11,7 @@ const openai = new OpenAI({
 });
 
 
-export default async function SendMessage(transcript: String) {
+export default async function SummeriseIt(transcript: String, setSummarized, setShowSummery) {
   try {
          const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -27,7 +27,8 @@ export default async function SendMessage(transcript: String) {
 });
 
       const data = await response.json();
-      console.log(data.choices[0].message.content);
+      setSummarized(data.choices[0].message.content);
+      setShowSummery(true)
     //   console.log(response.headers.get('x-request-id'))
     //   console.log(response.headers.get('x-ratelimit-remaining-requests'))
       console.log("not an error log, response error")
@@ -37,5 +38,5 @@ export default async function SendMessage(transcript: String) {
   }
 }
 
-// SendMessage();
+// SummeriseIt();
 
