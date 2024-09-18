@@ -1,16 +1,21 @@
 .container {
-    background-color: beige;
+    background-color: #F0EAD6;
+    color: green;
     width: 90%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
-    border-radius: 10%;
+    display: flex;
+    /* justify-content: space-between; */
+    border-radius: 3%;
     padding: 5px 8px;
     border-bottom: 10px solid rgb(65, 65, 46);
-    gap: 10px;
+    max-height: 25rem;
+    /* font-size: 20px; */
 }
 
+h2 {
+    position: absolute;
+    top: 15px;
+}
 .body {
     display: flex;
     flex-direction: column;
@@ -19,4 +24,9 @@
 
 .btns {
     margin-left: 5%;
+}
+
+.altBtns {
+    background-color: rgba(54, 7, 161, 0.726);
+    /* border: 1px solid whitesmoke; */
 }
