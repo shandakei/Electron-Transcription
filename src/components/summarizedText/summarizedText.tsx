@@ -1,8 +1,11 @@
 import styles from './summarizedText.module.css'
 export default function SummarizedText({response}) {
 
-    return (
+    return (<>
     <p className={styles.summarizedText}>
+    <h3>SUMMARIZED</h3>
     {response}
-    </p>)
+    </p>
+    </>
+    )
 }
