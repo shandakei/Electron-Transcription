@@ -27,11 +27,11 @@ const RecordAudio = () => {
         <StopBtn setRecording={setRecording} mediaRecorder={null} />
         <TranscribeBtn setRecording={setRecording}/>
         {/* <OpenAIComponent setSummarized={setSummarized} summarized={summarized} response={response} setResponse={setResponse}/> */}
-        <button onClick={() => SummeriseIt(transcript, setSummarized, setShowSummery)}>Summerize Content</button>
-        {showSummery ? <button onClick={() => setShowSummery(false)}>Hide Summery</button> : <button onClick={() => setShowSummery(true)}>Show Summery</button>}
-        <button onClick={() => setTranscript('')}>Clear Transcription</button>
+        <button className={styles.altBtns} onClick={() => SummeriseIt(transcript, setSummarized, setShowSummery)}>Summerize Content</button>
+        {showSummery ? <button className={styles.altBtns} onClick={() => setShowSummery(false)}>Hide Summery</button> : <button className={styles.altBtns} onClick={() => setShowSummery(true)}>Show Summery</button>}
+        <button className={styles.altBtns} onClick={() => setTranscript('')}>Clear Transcription</button>
       </div>
-      <h2>Live 'Record Audio' Transcript</h2>
+      <h2>DeepNotes</h2>
       <div className={styles.container}>
         <p className={styles.transcription}>{transcript}</p>
         {showSummery ? <SummarizedText response={summarized} /> : <></>}
