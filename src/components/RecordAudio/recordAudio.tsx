@@ -23,18 +23,19 @@ const RecordAudio = () => {
 
   return (
     <div className={styles.body}>
-    <div className={styles.btns}>
-      <StopBtn setRecording={setRecording} mediaRecorder={null} />
-      <TranscribeBtn setRecording={setRecording}/>
-      {/* <OpenAIComponent setSummarized={setSummarized} summarized={summarized} response={response} setResponse={setResponse}/> */}
-      <button onClick={() => SummeriseIt(transcript, setSummarized, setShowSummery)}>Summerize Content</button>
-      {showSummery ? <button onClick={() => setShowSummery(false)}>Hide Summery</button> : <button onClick={() => setShowSummery(true)}>Show Summery</button>}
-    </div>
-    <h2>Live 'Record Audio' Transcript</h2>
-    <div className={styles.container}>
-      <p className={styles.transcription}>{transcript}</p>
-      {showSummery ? <SummarizedText response={summarized} /> : <></>}
-    </div>
+      <div className={styles.btns}>
+        <StopBtn setRecording={setRecording} mediaRecorder={null} />
+        <TranscribeBtn setRecording={setRecording}/>
+        {/* <OpenAIComponent setSummarized={setSummarized} summarized={summarized} response={response} setResponse={setResponse}/> */}
+        <button onClick={() => SummeriseIt(transcript, setSummarized, setShowSummery)}>Summerize Content</button>
+        {showSummery ? <button onClick={() => setShowSummery(false)}>Hide Summery</button> : <button onClick={() => setShowSummery(true)}>Show Summery</button>}
+        <button onClick={() => setTranscript('')}>Clear Transcription</button>
+      </div>
+      <h2>Live 'Record Audio' Transcript</h2>
+      <div className={styles.container}>
+        <p className={styles.transcription}>{transcript}</p>
+        {showSummery ? <SummarizedText response={summarized} /> : <></>}
+      </div>
     </div>
   );
 };
