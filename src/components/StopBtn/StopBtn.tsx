@@ -15,7 +15,7 @@ export default function StopBtn({ setRecording, mediaRecorder }: StopBtnProps) {
 
   return (
     <button className="stopBtn" onClick={handleStop}>
-      STOP
+      ■
     </button>
   );
 }
