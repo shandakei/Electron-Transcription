@@ -3,11 +3,11 @@
 }
 
 body {
-    background-color: rgba(0, 0, 0, 0.534);
+    background-color: rgba(242, 245, 255, 0.534);
 }
 
 .stopBtn {
-    background-color: red;
+    background-color: rgb(230, 3, 3);
     color: white;
 }
 

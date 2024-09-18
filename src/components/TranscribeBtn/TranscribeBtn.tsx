@@ -13,7 +13,7 @@ export default function TranscribeBtn({ setRecording }: TranscribeBtnProps) {
 
   return (
     <button className={styles.transcriptionBtn} onClick={handleTranscription}>
-      Start Transcription
+      ▶
     </button>
   );
 }
