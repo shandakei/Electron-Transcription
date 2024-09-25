@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "homepage": "https://jesus130247.github.io/Electron-Transcription",
-=======
-  "homepage": "http://jesus130247.github.io/Electron-Transcription",
->>>>>>> 6ca99721b3b044dc77948b0b326257725479e00d
   "name": "electron-vite-project",
   "private": true,
   "version": "0.0.0",
