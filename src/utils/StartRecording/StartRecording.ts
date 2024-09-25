@@ -34,7 +34,6 @@ export default async function startRecording(setTranscript: React.Dispatch<React
       if (incoming && incoming.trim() && received.is_final) {
         setTranscript((prev: string) => `${prev} ${incoming}`.trim());
       }
-      console.log(incoming);
     };
 
     socket.onclose = () => {

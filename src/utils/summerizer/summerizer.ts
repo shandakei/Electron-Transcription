@@ -9,9 +9,11 @@ const openai = new OpenAI({
     apiKey: `${openaiKey}`,
     dangerouslyAllowBrowser: true
 });
+if (!openai) {
+    console.log("openai not working")
+}
 
-
-export default async function SummeriseIt(transcript: String, setSummarized, setShowSummery) {
+export default async function SummeriseIt(transcript: String, setSummarized: any, setShowSummery: any) {
   try {
          const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -31,10 +33,9 @@ export default async function SummeriseIt(transcript: String, setSummarized, set
       setShowSummery(true)
     //   console.log(response.headers.get('x-request-id'))
     //   console.log(response.headers.get('x-ratelimit-remaining-requests'))
-      console.log("not an error log, response error")
   } catch (error) {
-    
-      console.error(error, "your shit didnt work again dude");
+    setSummarized(`ERROR: ${error}`);
+    setShowSummery(true)
   }
 }
 

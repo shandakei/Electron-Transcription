@@ -7,7 +7,6 @@ interface TranscribeBtnProps {
 export default function TranscribeBtn({ setRecording }: TranscribeBtnProps) {
     
   function handleTranscription() {
-    console.log('... attempting transcription');
     setRecording(true);
   }
 
