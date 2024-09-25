@@ -6,7 +6,6 @@ interface StopBtnProps {
 export default function StopBtn({ setRecording, mediaRecorder }: StopBtnProps) {
 
   function handleStop() {
-    console.log('StopBtn Click');
     setRecording(false);
     if (mediaRecorder && mediaRecorder.state === 'recording') {
       mediaRecorder.stop();

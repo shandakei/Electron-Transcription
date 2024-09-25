@@ -4,7 +4,6 @@ import RecAudio from './components/RecordAudio/recordAudio';
 
 
 function App() {
-  console.log('hello world');
 
   return (
     <>
