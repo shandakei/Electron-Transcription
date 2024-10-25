@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 // dotenv.config();
 
-const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
+const openaiKey = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI({
     organization: "org-PqmBk3NSxA2oruuligJ5z05Y",
